@@ -12,3 +12,13 @@ camelize("testing ABC")    // => TestingAbc
 function camelize(str){
   return str.replace(/[^a-z0-9]/gi,' ').split` `.map(v=>v.slice(0,1).toUpperCase()+v.slice(1).toLowerCase()).join``
 }
+
+once more solution:
+function camelize(str){
+  return str
+    .toLowerCase()
+    .split(/[^a-zA-Z0-9]/)
+    .filter((el) => el !== "")
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join("")
+}
